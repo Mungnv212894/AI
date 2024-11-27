@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Đọc dữ liệu từ file CSV và gán tên cột
-file_path = "1732701757170 - 1732701768155.csv"
+file_path = "1732698190207 - 1732698202206.csv"
 data = pd.read_csv(file_path, header=None, names=['a', 'b', 'c', 'd', 'e', 'f', 'id'])
 
 # Vẽ đồ thị
@@ -14,7 +14,7 @@ for col in columns_to_plot:
     plt.plot(data['a'], data[col], label=col)
 
 # Tuỳ chỉnh giới hạn trục y và nhãn trục
-plt.ylim(0, 4095)  # Giới hạn trên của trục y là 4095
+plt.ylim(0, 2500)  # Giới hạn trên của trục y là 4095
 plt.title('Plot of Columns b, c, d, e, f with Time', fontsize=16)
 plt.xlabel('Time (a)', fontsize=12)
 plt.ylabel('Values', fontsize=12)
