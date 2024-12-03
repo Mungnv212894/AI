@@ -1,28 +1,17 @@
 import pandas as pd
-import matplotlib.pyplot as plt
+import csv
 
 # Đọc dữ liệu từ file CSV và gán tên cột
-file_path = "1732843785598 - 1732843793032.csv"
-data = pd.read_csv(file_path, header=None, names=['a', 'b', 'c', 'd', 'e', 'f', 'id'])
+input_file = "1732843602181 - 1732843609154.csv"
+output_file = "output.csv"
 
-# Vẽ đồ thị
-plt.figure(figsize=(12, 6))
+# Đọc file CSV vào dataframe pandas
+data = pd.read_csv(input_file, header=None, names=['a', 'b', 'c', 'd', 'e', 'f', 'id'])
 
-# Chỉ vẽ các cột b, c, d, e, f
-columns_to_plot = ['b', 'c', 'd', 'e', 'f']
-for col in columns_to_plot:
-    plt.plot(data['a'], data[col], label=col)
+# Tìm và thay đổi giá trị id nếu cột 1 có giá trị là 1732843606440
+data.loc[data['a'] == 1732843606440, 'id'] = 'id62'
 
-# Tuỳ chỉnh giới hạn trục y và nhãn trục
-plt.ylim(0, 2500)  # Giới hạn trên của trục y là 4095
-plt.title('Plot of Columns b, c, d, e, f with Time', fontsize=16)
-plt.xlabel('Time (a)', fontsize=12)
-plt.ylabel('Values', fontsize=12)
+# Ghi lại file CSV với dữ liệu đã chỉnh sửa
+data.to_csv(output_file, index=False, header=False)
 
-# Hiển thị lưới và chú thích
-plt.grid(True)
-plt.legend()
-
-# Hiển thị đồ thị
-plt.tight_layout()
-plt.show()
+print(f"File CSV đã được sửa và lưu tại: {output_file}")
