@@ -2,18 +2,18 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 
-# Danh sách file CSV mới nhất
+# Danh sách file CSV mới
 file_paths = [
-    '1733137167277 - 1733137176065.csv',
-    '1733191333408 - 1733191340995.csv',
-    '1733191454972 - 1733191462696.csv',
-    '1733191612169 - 1733191620623.csv',
-    '1733191686666 - 1733191694174.csv',
-    '1733191752776 - 1733191760593.csv',
-    '1733191822037 - 1733191829418.csv',
-    '1733191893571 - 1733191901176.csv',
-    '1733191963048 - 1733191970525.csv',
-    '1733192125500 - 1733192133720.csv'
+    '1733124037886 - 1733124049774.csv',
+    '1733124260189 - 1733124270733.csv',
+    '1733124764495 - 1733124773608.csv',
+    '1733124829035 - 1733124839501.csv',
+    '1733124898836 - 1733124910093.csv',
+    '1733124966360 - 1733124976493.csv',
+    '1733125367183 - 1733125377793.csv',
+    '1733125494219 - 1733125505024.csv',
+    '1733125590368 - 1733125600655.csv',
+    '1733125666123 - 1733125677370.csv'
 ]
 
 # Kiểm tra sự tồn tại của file CSV
@@ -23,7 +23,7 @@ if not existing_files:
     exit()
 
 # Cấu hình kích thước cửa sổ đồ thị
-plt.figure(figsize=(15, 30))
+plt.figure(figsize=(15, 28))
 
 # Lặp qua từng file CSV để vẽ đồ thị
 for i, file_path in enumerate(existing_files):
@@ -37,7 +37,7 @@ for i, file_path in enumerate(existing_files):
             continue
 
         # Tạo đồ thị con cho mỗi file
-        plt.subplot(6, 2, i + 1)  # 6 hàng, 2 cột (tối đa 12 đồ thị), vị trí thứ i+1
+        plt.subplot(5, 2, i + 1)  # 5 hàng, 2 cột (10 đồ thị), vị trí thứ i+1
         columns_to_plot = ['b', 'c', 'd', 'e', 'f']  # Các cột cần vẽ
 
         # Vẽ các cột dữ liệu

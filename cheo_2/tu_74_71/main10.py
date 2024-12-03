@@ -2,30 +2,30 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 
-# Danh sách file CSV mới nhất
+# Danh sách file CSV cập nhật
 file_paths = [
-    '1733137167277 - 1733137176065.csv',
-    '1733191333408 - 1733191340995.csv',
-    '1733191454972 - 1733191462696.csv',
-    '1733191612169 - 1733191620623.csv',
-    '1733191686666 - 1733191694174.csv',
-    '1733191752776 - 1733191760593.csv',
-    '1733191822037 - 1733191829418.csv',
-    '1733191893571 - 1733191901176.csv',
-    '1733191963048 - 1733191970525.csv',
-    '1733192125500 - 1733192133720.csv'
+    '1733201919833 - 1733201928541.csv',
+    '1733202057970 - 1733202064933.csv',
+    '1733202148017 - 1733202155541.csv',
+    '1733202206944 - 1733202213998.csv',
+    '1733202551362 - 1733202558049.csv',
+    '1733202602474 - 1733202608869.csv',
+    '1733202664482 - 1733202671066.csv',
+    '1733202784109 - 1733202791742.csv',
+    '1733202855268 - 1733202861757.csv',
+    '1733202931736 - 1733202938695.csv'
 ]
 
-# Kiểm tra sự tồn tại của file CSV
+# Kiểm tra file tồn tại
 existing_files = [file for file in file_paths if os.path.exists(file)]
 if not existing_files:
     print("No valid files found. Check file paths!")
     exit()
 
-# Cấu hình kích thước cửa sổ đồ thị
+# Thiết lập kích thước đồ thị
 plt.figure(figsize=(15, 30))
 
-# Lặp qua từng file CSV để vẽ đồ thị
+# Lặp qua từng file để vẽ đồ thị
 for i, file_path in enumerate(existing_files):
     try:
         # Đọc dữ liệu từ file CSV
@@ -36,11 +36,11 @@ for i, file_path in enumerate(existing_files):
             print(f"File {file_path} is empty. Skipping...")
             continue
 
-        # Tạo đồ thị con cho mỗi file
-        plt.subplot(6, 2, i + 1)  # 6 hàng, 2 cột (tối đa 12 đồ thị), vị trí thứ i+1
-        columns_to_plot = ['b', 'c', 'd', 'e', 'f']  # Các cột cần vẽ
+        # Tạo đồ thị con
+        plt.subplot(6, 2, i + 1)  # Tối đa 12 đồ thị
+        columns_to_plot = ['b', 'c', 'd', 'e', 'f']  # Các cột để vẽ
 
-        # Vẽ các cột dữ liệu
+        # Vẽ dữ liệu
         for col in columns_to_plot:
             if col in data:
                 plt.plot(data['a'], data[col], label=col)
@@ -60,6 +60,6 @@ for i, file_path in enumerate(existing_files):
     except Exception as e:
         print(f"An error occurred with file {file_path}: {e}")
 
-# Hiển thị tất cả đồ thị
+# Hiển thị đồ thị
 plt.tight_layout()
 plt.show()

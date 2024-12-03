@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Đọc dữ liệu từ file CSV và gán tên cột
-file_path = "1733192125500 - 1733192133720.csv"
+file_path = "1733208566086 - 1733208573657.csv"
 data = pd.read_csv(file_path, header=None, names=['a', 'b', 'c', 'd', 'e', 'f', 'id'])
 
 # Vẽ đồ thị
